@@ -11,6 +11,7 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    overflow-x: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,10 +22,19 @@ body {
 
 .container {
     padding: 20px;
+    position: relative;
+    z-index: 2;
 }
 
 .cat {
     font-size: 70px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
 }
 
 button {
@@ -38,9 +48,28 @@ button {
     cursor: pointer;
 }
 
+button:active {
+    transform: scale(0.95);
+}
+
 #text {
     margin-top: 15px;
     font-size: 18px;
+}
+
+/* tim bay */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 20px;
+    animation: rise 4s linear forwards;
+}
+
+@keyframes rise {
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
 }
 </style>
 </head>
@@ -69,8 +98,23 @@ function showMessage() {
 
   if (currentLine < lines.length) {
     textBox.innerHTML += lines[currentLine] + "<br><br>";
+    createHeart();
     currentLine++;
   }
+}
+
+function createHeart() {
+  var heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💗";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+
+  document.body.appendChild(heart);
+
+  setTimeout(function() {
+    heart.remove();
+  }, 4000);
 }
 </script>
 
@@ -78,5 +122,4 @@ function showMessage() {
 </html>
 
 
- 
-  
+
