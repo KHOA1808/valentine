@@ -9,9 +9,8 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,30 +20,11 @@ body {
 }
 
 .container {
-    padding: 25px;
-    max-width: 90%;
+    padding: 20px;
 }
 
 .cat {
     font-size: 70px;
-    animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0); }
-}
-
-h1 {
-    font-size: 24px;
-    margin-top: 10px;
-}
-
-#text {
-    margin-top: 15px;
-    font-size: 18px;
-    min-height: 60px;
 }
 
 button {
@@ -55,25 +35,12 @@ button {
     font-size: 16px;
     background: white;
     color: #ff4d88;
+    cursor: pointer;
 }
 
-button:active {
-    transform: scale(0.95);
-}
-
-/* tim bay */
-.heart {
-    position: fixed;
-    bottom: -10px;
+#text {
+    margin-top: 15px;
     font-size: 18px;
-    animation: rise 4s linear forwards;
-}
-
-@keyframes rise {
-    to {
-        transform: translateY(-110vh);
-        opacity: 0;
-    }
 }
 </style>
 </head>
@@ -107,23 +74,9 @@ function showMessage() {
 }
 </script>
 
-
-// tim bay nhẹ cho mobile
-function createHeart(
-     var heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "💗";
-    heart.style.left = Math.random() * 100 + "vw";
-    document.body.appendChild(heart);
-
-    setTimeout(function(){
-        heart.remove();
-    }, 4000);
-}
-
-setInterval(createHeart, 800);
-</script>
-
 </body>
 </html>
 
+
+ 
+  
