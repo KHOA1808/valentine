@@ -88,27 +88,25 @@ button:active {
 </div>
 
 <script>
-var message = "nay 14/2 , chị eo xinh gái hem có khok với bùn nữa đóaa\nchúc chị eo luôn vui vẻ và đặc biệt là hong có tiêu cực nữa nhe\n em K thương chị mò , hong có muốn mất chị đâu \n eo chị Chang lắm aaaa :3";
-var i = 0;
+var lines = [
+  "nay 14/2 , chị eo xinh gái hem có khok với bùn nữa đóaa",
+  "chúc chị eo luôn vui vẻ và đặc biệt là hong có tiêu cực nữa nhe",
+  "em K thương chị mò , hong có muốn mất chị đâu",
+  "eo chị Chang lắm aaaa :3"
+];
+
+var currentLine = 0;
 
 function showMessage() {
-    var textBox = document.getElementById("text");
-    textBox.innerHTML = "";
-    i = 0;
-    typeEffect();
-}
+  var textBox = document.getElementById("text");
 
-function typeEffect() {
-    if (i < message.length) {
-        if (message.charAt(i) === "\n") {
-            document.getElementById("text").innerHTML += "<br>";
-        } else {
-            document.getElementById("text").innerHTML += message.charAt(i);
-        }
-        i++;
-        setTimeout(typeEffect, 40);
-    }
+  if (currentLine < lines.length) {
+    textBox.innerHTML += lines[currentLine] + "<br><br>";
+    currentLine++;
+  }
 }
+</script>
+
 
 // tim bay nhẹ cho mobile
 function createHeart(
@@ -128,3 +126,4 @@ setInterval(createHeart, 800);
 
 </body>
 </html>
+
