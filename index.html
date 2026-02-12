@@ -17,9 +17,9 @@ body {
     align-items: center;
     height: 100vh;
     text-align: center;
-    color: white;
 }
 
+/* Khung nội dung */
 .container {
     padding: 25px;
     max-width: 90%;
@@ -27,6 +27,7 @@ body {
     z-index: 2;
 }
 
+/* Mèo nổi */
 .cat {
     font-size: 85px;
     animation: float 3s ease-in-out infinite;
@@ -41,14 +42,24 @@ body {
 h1 {
     font-size: 24px;
     margin-top: 10px;
+    color: white;
 }
 
+/* 🌸 Chữ gradient lung linh */
 #text {
     margin-top: 15px;
-    font-size: 18px;
-    min-height: 90px;
+    font-size: 20px;
+    min-height: 100px;
+    font-weight: bold;
+
+    background: linear-gradient(90deg, #ff4d88, #ff99cc, #ff4d88);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.6);
 }
 
+/* Nút */
 button {
     margin-top: 20px;
     padding: 12px 22px;
@@ -65,7 +76,7 @@ button:active {
     transform: scale(0.95);
 }
 
-/* Mưa tim */
+/* 💗 Mưa tim */
 .heart {
     position: fixed;
     top: -10px;
@@ -94,8 +105,7 @@ button:active {
 
 <!-- 🎵 Nhạc nền -->
 <audio id="bgMusic" loop>
-    <!-- Ông có thể thay link nhạc khác ở đây -->
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_5f4f4c9a0a.mp3?filename=romantic-love-11786.mp3" type="audio/mpeg">
+    <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -103,21 +113,17 @@ var lines = [
   "nay 14/2 , chị eo xinh gái hem có khok với bùn nữa đóaa",
   "chúc chị eo luôn vui vẻ và đặc biệt là hong có tiêu cực nữa nhe",
   "em K thương chị mò , hong có muốn mất chị đâu",
-  "eo chị Chang lắm aaaa :3",
-  "đọc tới đây chắc thấy em K sến thiệt , mà em K tặng chị thật lòng đóa nheee :3 "
-    
+  "eo chị Chang lắm aaaa :3"
 ];
 
 var currentLine = 0;
 var typing = false;
-var musicStarted = false;
 
 function showMessage() {
 
-  // 🎵 phát nhạc khi bấm lần đầu
-  if (!musicStarted) {
-    document.getElementById("bgMusic").play();
-    musicStarted = true;
+  var music = document.getElementById("bgMusic");
+  if (music.paused) {
+      music.play().catch(function(error){});
   }
 
   if (typing) return;
@@ -146,7 +152,7 @@ function showMessage() {
   typeEffect();
 }
 
-/* 💗 Mưa tim */
+/* 💗 Tạo mưa tim */
 function createHeart() {
   var heart = document.createElement("div");
   heart.className = "heart";
@@ -167,9 +173,10 @@ setInterval(createHeart, 120);
 </body>
 </html>
 
-  
+
 
    
+
 
 
 
