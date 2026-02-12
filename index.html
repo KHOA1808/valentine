@@ -10,7 +10,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -29,47 +29,48 @@ body {
 
 /* Mèo nổi */
 .cat {
-    font-size: 85px;
+    font-size: 90px;
     animation: float 3s ease-in-out infinite;
 }
 
 @keyframes float {
     0% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+    50% { transform: translateY(-18px); }
     100% { transform: translateY(0); }
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 26px;
     margin-top: 10px;
     color: white;
+    text-shadow: 0 3px 8px rgba(0,0,0,0.3);
 }
 
-/* 🌸 Chữ gradient lung linh */
+/* 🔥 Chữ nổi bật rõ nét */
 #text {
-    margin-top: 15px;
-    font-size: 20px;
-    min-height: 100px;
+    margin-top: 20px;
+    font-size: 22px;
+    min-height: 110px;
     font-weight: bold;
-
-    background: linear-gradient(90deg, #ff4d88, #ff99cc, #ff4d88);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    text-shadow: 0 0 10px rgba(255, 105, 180, 0.6);
+    color: #ffffff;
+    line-height: 1.6;
+    text-shadow:
+        0 2px 6px rgba(0,0,0,0.35),
+        0 0 10px rgba(255,255,255,0.4);
 }
 
 /* Nút */
 button {
-    margin-top: 20px;
-    padding: 12px 22px;
+    margin-top: 25px;
+    padding: 14px 24px;
     border: none;
-    border-radius: 25px;
-    font-size: 16px;
+    border-radius: 30px;
+    font-size: 17px;
     background: white;
     color: #ff4d88;
     cursor: pointer;
     transition: 0.2s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 button:active {
@@ -80,7 +81,7 @@ button:active {
 .heart {
     position: fixed;
     top: -10px;
-    font-size: 20px;
+    font-size: 22px;
     animation: fall linear forwards;
     z-index: 1;
 }
@@ -113,7 +114,8 @@ var lines = [
   "nay 14/2 , chị eo xinh gái hem có khok với bùn nữa đóaa",
   "chúc chị eo luôn vui vẻ và đặc biệt là hong có tiêu cực nữa nhe",
   "em K thương chị mò , hong có muốn mất chị đâu",
-  "eo chị Chang lắm aaaa :3"
+  "eo chị Chang lắm aaaa :3" ,
+  "chị eo đọc tới đây chắc thấy sến thiệt he , mà em K tặng chị thiệt lòng đóa :3 "  
 ];
 
 var currentLine = 0;
@@ -142,7 +144,7 @@ function showMessage() {
     if (i < line.length) {
       newLine.innerHTML += line.charAt(i);
       i++;
-      setTimeout(typeEffect, 40);
+      setTimeout(typeEffect, 35);
     } else {
       currentLine++;
       typing = false;
@@ -159,7 +161,7 @@ function createHeart() {
   heart.innerHTML = "💗";
 
   heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (Math.random() * 25 + 15) + "px";
+  heart.style.fontSize = (Math.random() * 25 + 18) + "px";
   heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
 
   document.body.appendChild(heart);
@@ -167,15 +169,19 @@ function createHeart() {
   setTimeout(() => heart.remove(), 6000);
 }
 
-setInterval(createHeart, 120);
+setInterval(createHeart, 100);
 </script>
 
 </body>
 </html>
 
+ 
+
+
 
 
    
+
 
 
 
