@@ -11,7 +11,7 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-    overflow-x: hidden;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,10 +37,6 @@ body {
     100% { transform: translateY(0); }
 }
 
-h1 {
-    margin: 10px 0;
-}
-
 #text {
     margin-top: 15px;
     font-size: 18px;
@@ -62,20 +58,16 @@ button:active {
     transform: scale(0.95);
 }
 
-/* Tim bay */
+/* Mưa tim */
 .heart {
     position: fixed;
-    bottom: -20px;
-    animation: rise 4s linear forwards;
+    top: -10px;
+    animation: fall linear forwards;
 }
 
-@keyframes rise {
-    0% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-110vh);
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
         opacity: 0;
     }
 }
@@ -106,11 +98,11 @@ function showMessage() {
 
   if (currentLine < lines.length) {
     textBox.innerHTML += lines[currentLine] + "<br><br>";
-    createHeart();
     currentLine++;
   }
 }
 
+/* tạo mưa tim liên tục */
 function createHeart() {
   var heart = document.createElement("div");
   heart.className = "heart";
@@ -118,16 +110,23 @@ function createHeart() {
 
   heart.style.left = Math.random() * 100 + "vw";
   heart.style.fontSize = (Math.random() * 25 + 15) + "px";
+  heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
 
   document.body.appendChild(heart);
 
   setTimeout(function() {
     heart.remove();
-  }, 4000);
+  }, 5000);
 }
+
+setInterval(createHeart, 200);
 </script>
 
 </body>
 </html>
 
+
+
   
+
+   
