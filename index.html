@@ -37,6 +37,16 @@ body {
     100% { transform: translateY(0); }
 }
 
+h1 {
+    margin: 10px 0;
+}
+
+#text {
+    margin-top: 15px;
+    font-size: 18px;
+    min-height: 60px;
+}
+
 button {
     margin-top: 20px;
     padding: 12px 20px;
@@ -52,21 +62,19 @@ button:active {
     transform: scale(0.95);
 }
 
-#text {
-    margin-top: 15px;
-    font-size: 18px;
-}
-
-/* tim bay */
+/* Tim bay */
 .heart {
     position: fixed;
     bottom: -20px;
-    font-size: 20px;
     animation: rise 4s linear forwards;
 }
 
 @keyframes rise {
-    to {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
         transform: translateY(-110vh);
         opacity: 0;
     }
@@ -107,8 +115,9 @@ function createHeart() {
   var heart = document.createElement("div");
   heart.className = "heart";
   heart.innerHTML = "💗";
+
   heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+  heart.style.fontSize = (Math.random() * 25 + 15) + "px";
 
   document.body.appendChild(heart);
 
@@ -121,5 +130,4 @@ function createHeart() {
 </body>
 </html>
 
-
-
+  
