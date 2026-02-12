@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>chị eo phải đọc nhooo</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    color: white;
+}
+
+.container {
+    padding: 25px;
+    max-width: 90%;
+}
+
+.cat {
+    font-size: 70px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+h1 {
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+#text {
+    margin-top: 15px;
+    font-size: 18px;
+    min-height: 60px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    background: white;
+    color: #ff4d88;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* tim bay */
+.heart {
+    position: fixed;
+    bottom: -10px;
+    font-size: 18px;
+    animation: rise 4s linear forwards;
+}
+
+@keyframes rise {
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="cat">🐱💗</div>
+    <h1>chị eooo 🥺</h1>
+    <div id="text"></div>
+    <button onclick="showMessage()">bấm vô cái nì nòoo</button>
+</div>
+
+<script>
+var message = "nay 14/2 , chị eo xinh gái hem có khok với bùn nữa đóaa\nchúc chị eo luôn vui vẻ và đặc biệt là hong có tiêu cực nữa nhe\n em K thương chị mò , hong có muốn mất chị đâu \n eo chị Chang lắm aaaa :3";
+var i = 0;
+
+function showMessage() {
+    var textBox = document.getElementById("text");
+    textBox.innerHTML = "";
+    i = 0;
+    typeEffect();
+}
+
+function typeEffect() {
+    if (i < message.length) {
+        if (message.charAt(i) === "\n") {
+            document.getElementById("text").innerHTML += "<br>";
+        } else {
+            document.getElementById("text").innerHTML += message.charAt(i);
+        }
+        i++;
+        setTimeout(typeEffect, 40);
+    }
+}
+
+// tim bay nhẹ cho mobile
+function createHeart(
+     var heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(heart);
+
+    setTimeout(function(){
+        heart.remove();
+    }, 4000);
+}
+
+setInterval(createHeart, 800);
+</script>
+
+</body>
+</html>
