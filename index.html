@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>mẹ Thảo</title>
+<title>chị eo phải đọc nhooo</title>
 
 <style>
 body {
     margin: 0;
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-    background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -19,37 +19,57 @@ body {
     text-align: center;
 }
 
+/* Khung nội dung */
 .container {
     padding: 25px;
     max-width: 90%;
+    position: relative;
     z-index: 2;
 }
 
+/* Mèo nổi */
+.cat {
+    font-size: 90px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-18px); }
+    100% { transform: translateY(0); }
+}
+
 h1 {
-    font-size: 28px;
+    font-size: 26px;
+    margin-top: 10px;
     color: white;
     text-shadow: 0 3px 8px rgba(0,0,0,0.3);
 }
 
+/* 🔥 Chữ nổi bật rõ nét */
 #text {
     margin-top: 20px;
-    font-size: 20px;
+    font-size: 22px;
+    min-height: 110px;
     font-weight: bold;
-    color: white;
-    min-height: 120px;
+    color: #ffffff;
     line-height: 1.6;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    text-shadow:
+        0 2px 6px rgba(0,0,0,0.35),
+        0 0 10px rgba(255,255,255,0.4);
 }
 
+/* Nút */
 button {
     margin-top: 25px;
     padding: 14px 24px;
     border: none;
     border-radius: 30px;
-    font-size: 16px;
+    font-size: 17px;
     background: white;
-    color: #ff6b81;
+    color: #ff4d88;
     cursor: pointer;
+    transition: 0.2s;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
@@ -57,12 +77,13 @@ button:active {
     transform: scale(0.95);
 }
 
-/* 🌸 Hoa bay nhẹ */
-.flower {
+/* 💗 Mưa tim */
+.heart {
     position: fixed;
     top: -10px;
-    font-size: 20px;
+    font-size: 22px;
     animation: fall linear forwards;
+    z-index: 1;
 }
 
 @keyframes fall {
@@ -77,24 +98,35 @@ button:active {
 <body>
 
 <div class="container">
-    <h1>Mẹ Thảo 💐</h1>
+    <div class="cat">🐱💗</div>
+    <h1>chị eooo 🥺</h1>
     <div id="text"></div>
-    <button onclick="showMessage()">bấm vô đây nè mẹ</button>
+    <button onclick="showMessage()">bấm vô cái nì nòoo</button>
 </div>
+
+<!-- 🎵 Nhạc nền -->
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
 
 <script>
 var lines = [
-  "Hôm nay 14/2 ",
-  "Chúc mẹ luôn vui và hạnh phúc",
-  "hong có mẹ hong làm ăn được gì hết trơn cũng đúng",
-  "nhớ mẹ nhất luôn á",
-  "mới học code được tới đây hoi nên là mẹ nhận đỡ nheee"
+  "nay 14/2 , chị eo xinh gái hem có khok với bùn nữa đóaa",
+  "chúc chị eo luôn vui vẻ và đặc biệt là hong có tiêu cực nữa nhe",
+  "em K thương chị mò , hong có muốn mất chị đâu",
+  "eo chị Chang lắm aaaa :3",
+  "chị eo đọc tới đây chắc thấy sến thiệt , mà em K tặng chị thiệt lòng đóa hong chê nheee :3 '  
 ];
 
 var currentLine = 0;
 var typing = false;
 
 function showMessage() {
+
+  var music = document.getElementById("bgMusic");
+  if (music.paused) {
+      music.play().catch(function(error){});
+  }
 
   if (typing) return;
   if (currentLine >= lines.length) return;
@@ -112,7 +144,7 @@ function showMessage() {
     if (i < line.length) {
       newLine.innerHTML += line.charAt(i);
       i++;
-      setTimeout(typeEffect, 50);
+      setTimeout(typeEffect, 35);
     } else {
       currentLine++;
       typing = false;
@@ -122,32 +154,34 @@ function showMessage() {
   typeEffect();
 }
 
-/* Hoa rơi */
-function createFlower() {
-  var flower = document.createElement("div");
-  flower.className = "flower";
-  flower.innerHTML = "🌸";
+/* 💗 Tạo mưa tim */
+function createHeart() {
+  var heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💗";
 
-  flower.style.left = Math.random() * 100 + "vw";
-  flower.style.fontSize = (Math.random() * 20 + 15) + "px";
-  flower.style.animationDuration = (Math.random() * 3 + 3) + "s";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (Math.random() * 25 + 18) + "px";
+  heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
 
-  document.body.appendChild(flower);
+  document.body.appendChild(heart);
 
-  setTimeout(() => flower.remove(), 6000);
+  setTimeout(() => heart.remove(), 6000);
 }
 
-setInterval(createFlower, 300);
+setInterval(createHeart, 100);
 </script>
 
 </body>
 </html>
 
-    
-  
+   
+
+
 
 
    
+
 
 
 
